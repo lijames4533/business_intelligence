@@ -1,0 +1,56 @@
+---
+title: "Class 05"
+output: html_document
+date: "2026-09-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Game 01: subsetting Lists
+
+```{r game01}
+campus = jsonlite::fromJSON(
+  "https://isa401-find-your-seat.vercel.app/campus.json")
+
+
+names (campus) # shows the named elements within a list (or vector) or the
+cols in a data frame
+fsb = campus$Farmer
+# saving the named farmer list in FSB
+# equivalent I
+fsb$code
+
+## Reading the Excel
+```{r occupations}
+occupation = readxl::read_excel(
+  path = "data/occupation.xlsx",
+  sheet = 5, 
+)
+# - when you 
+occupation = occupation [-c(32,33,34),]
+```
+
+
+## Reading the Excel
+```{r occupations}
+occupation = readxl::read_excel(
+  path = "../data/occupation.xlsx",
+  sheet = 5, 
+)
+# - when you 
+occupation = occupation [-c(32,33,34),]
+```
+
+## Read JSON Files 
+```json_url = paste0(
+  "https://data.cincinnati-oh.gov/",
+  "resource/rvmt-pkmq.json?$limit=100")
+crashes_json = jsonlite::fromJSON(json_url)
+dplyr::glimpse(
+  crashes_json[, c("crashdate", "dayofweek",
+                   "crashseverity", "age")])
+```
+## Class Game Two 
+

@@ -1,0 +1,88 @@
+---
+title: "Markdown_Classwork"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+
+---
+
+job = list(
+  title   = "Research Data Scientist, Magic Eye",
+  company = "Google",
+  salary  = list(min = 147000, max = 210000)
+)
+str(job)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+List of 3
+ $ title  : chr "Research Data Scientist, Magic Eye"
+ $ company: chr "Google"
+ $ salary :List of 2
+  ..$ min: num 147000
+  ..$ max: num 210000
+  
+# 1. The company name.
+company_name = job/company 
+# 2. The maximum salary.
+# 210,000
+# 3. The maximum salary again, using only [[ ]].
+# [[210000]]
+# 4. The names of the elements in job 
+
+crashes_by_day = c(2020, 2241, 2327, 2285, 2380, 1866, 1664)
+names(crashes_by_day) = c("Mon", "Tue", "Wed", "Thu",
+                          "Fri", "Sat", "Sun")
+crashes_by_day[2]                      # one position
+ Copy
+ Tue 
+2241 
+crashes_by_day["Fri"]                  # by name
+ Copy
+ Fri 
+2380 
+crashes_by_day[crashes_by_day > 2300]  # by condition
+ Copy
+ Wed  Fri 
+
+crashes_df = tibble::tibble(
+  day     = names(crashes_by_day),
+  crashes = crashes_by_day,
+  busy    = crashes_by_day > 2000)
+crashes_df
+ Copy
+# A tibble: 7 × 3
+  day   crashes busy 
+  <chr>   <dbl> <lgl>
+1 Mon      2020 TRUE 
+2 Tue      2241 TRUE 
+3 Wed      2327 TRUE 
+4 Thu      2285 TRUE 
+5 Fri      2380 TRUE 
+6 Sat      1866 FALSE
+7 Sun      1664 FALSE
+
+
+## 
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

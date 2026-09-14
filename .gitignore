@@ -1,0 +1,16 @@
+# RStudio project-local state
+.Rproj.user/
+
+# R session data and command history
+.Rhistory
+.RData
+.Ruserdata
+
+# R package build/check artifacts
+*.Rcheck/
+*.tar.gz
+
+# Common operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
