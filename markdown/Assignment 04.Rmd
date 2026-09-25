@@ -1,0 +1,36 @@
+---
+title: "Assignment 04"
+author: "James Li"
+date: "2026-09-14"
+output:
+  toc: TRUE
+  toc_float: true
+  number_sections: true
+  code_dowload: true
+  code_folding: show
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignments Here
+```{r}
+con = DBI::dbConnect( RSQLite::SQLite(), "../data/midwest_airbnb.db" )
+
+listings = DBI::dbReadTable(con, "listings")
+```
+
+nrow(listings)
+
+listings$city
+View(listings)
+
+listings$city == "Columbus"
+
+columbus = listings[listings$city == "Columbus", ]
+
+nrow(columbus)
+
+getwd() file.exists("data/midwest_airbnb.db") file.exists("../data/midwest_airbnb.db")
